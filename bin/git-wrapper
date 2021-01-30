@@ -1,0 +1,32 @@
+#!/bin/bash
+
+case $1 in
+br)
+	shift
+	git branch $@ 
+	;;
+co)
+	shift
+	git checkout $@ 
+	;;
+lo)
+	shift
+	git log $@ 
+	;;
+sls)
+	git stash list
+	;;
+spo)
+	git stash pop
+	;;
+spu)
+	git stash push
+	;;
+st)
+	git status
+	;;
+*)
+	git $@
+	;;
+esac
+

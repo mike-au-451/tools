@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Find files containing a string.
+# Write the files to a temp file and invoke sublime on the temp file.
+
+if [ -z "$1" ]
+then
+	exit
+fi
+
+FOO=$(mktemp); rg -l "$1" | sort -u > $FOO && xfce4-terminal --command 'less $FOO'
+
+

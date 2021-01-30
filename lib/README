@@ -1,0 +1,16 @@
+Any *sh file in this directory will be sourced inside .bashrc in alpha order
+with something like:
+
+```bash
+	for FILE in $HOME/lib/*sh
+	do
+	  source $FILE
+	done
+```
+
+Files that must run in some sequence should be named:
+
+	01-foo.sh
+	02-foo.sh
+	etc
+
