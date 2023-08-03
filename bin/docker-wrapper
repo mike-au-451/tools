@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# Normally invoked from an alias:
+#   alias d=docker-wrapper
+#
+# Usage:
+#   d i foo
+#     runs docker images foo
+#
+#   d c foo
+#     runs docker container foo
+#
+#   d foo
+#     runs docker foo
+#
+#
+#
+
+case "$1" in
+c)
+	shift
+	docker container "$@"
+	;;
+crmall)
+	shift
+	docker container ls --all --quiet | xargs docker container rm
+	;;
+i)
+	shift
+	docker image "$@"
+	;;
+irmall)
+	docker image ls --all --quiet | xargs docker image rm
+	;;
+*)
+	docker "$@"
+	;;
+esac
+
+
+
+
